@@ -1,5 +1,5 @@
 # edgerouter-vpn-failover
-Ubiquiti EdgeRouter configuration file and script(s) to perform auto-failover and Fallback when using a VPN
+Ubiquiti EdgeRouter configuration file and script(s) to perform auto-failover and fallback when using a VPN
 
 ## Why, when there's a wizard?
 
@@ -15,7 +15,8 @@ I'm not sure if this is important or not and haven't examined it. It came from a
 
 ## How to Use
 
-```$ scp config/scripts/lb-transition 192.168.1.1:lb-transition
+```
+$ scp config/scripts/lb-transition 192.168.1.1:lb-transition
 $ ssh 192.168.1.1
 $ sudo mkdir -p /config/scripts && sudo mv lb-transition /config/scripts && sudo chmod 755 /config/scripts/lb-transition
 ```
