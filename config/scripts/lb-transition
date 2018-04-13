@@ -1,0 +1,22 @@
+#!/bin/bash
+GROUP=$1
+INTF=$2
+STATUS=$3
+sudo conntrack -F
+sudo kill -SIGHUP $(pidof /usr/sbin/openvpn)
+LOG="/tmp/lb-transition.log"
+TS=$(date +"%m%d%y-%T")
+case "$STATUS" in
+  active)
+    msg="$TS: Going active $GROUP-$INTF"
+  ;;
+  inactive)
+    msg="$TS: Going inactive $GROUP-$INTF"
+  ;;
+  *)
+   msg="$TS: $GROUP-$INTF going [$STATUS]"
+  ;;
+esac
+echo $msg >> $LOG
+exit 0;
+
