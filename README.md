@@ -1,9 +1,16 @@
 # edgerouter-vpn-failover
-Ubiquiti EdgeRouter configuration file and script(s) to perform auto-failover and fallback when using a VPN
+Ubiquiti EdgeRouter configuration file and script(s) to perform auto-failover and fallback when using a VPN. This was implemented on an EdgeRouter-6P but it should work on any EdgeRouter.
 
 ## Why, when there's a wizard?
 
 The Wizard doesn't work when you introduce a VPN into the equation. The key things here seem to be tweaks in the `*.ovpn` file as well as the script. I am not claiming that I have written some magic configuration from scratch, but this did take me several hours to get working as desired so I thought I would share. Hope it is helpful.
+
+## Assumptions
+
+This assumes the following:
+* eth0 is your primary ISP and serves you DHCP
+* eth1 is your secondary (fail-over only) ISP and serves you DHCP
+* You want to fail-over when necessary but fall back as soon as your primary is back up
 
 ## Notes for UBNT Firmware v1.10.1
 
