@@ -57,11 +57,8 @@ keysize 256
 persist-key
 persist-tun
 verify-x509-name my.vpn.com name
-verb 6 
-log /tmp/eth0
 ping 5
 ping-restart 15
-status /tmp/VPNSTATUS
 script-security 2
 ```
 
