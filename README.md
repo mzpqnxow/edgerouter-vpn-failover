@@ -69,3 +69,7 @@ Assuming eth0 is your first ISP and eth1 is your second, your first ISP is desig
 ## Credits
 
 UBNT support forums and reddit were very helpful in getting this to work
+
+## License
+
+See LICENSE
