@@ -1,6 +1,10 @@
 # edgerouter-vpn-failover
 Ubiquiti EdgeRouter configuration file and script(s) to perform auto-failover and Fallback when using a VPN
 
+## Why, when there's a wizard?
+
+The Wizard doesn't work when you introduce a VPN into the equation. The key things here seem to be tweaks in the `*.ovpn` file as well as the script. I am not claiming that I have written some magic configuration from scratch, but this did take me several hours to get working as desired so I thought I would share. Hope it is helpful.
+
 ## Notes for UBNT Firmware v1.10.1
 
 Per UBNT engineers, there is a bug in v1.10.1 that should be resolved like this:
@@ -52,3 +56,11 @@ ping-restart 15
 status /tmp/VPNSTATUS
 script-security 2
 ```
+
+## End State Behavior
+
+Assuming eth0 is your first ISP and eth1 is your second, your first ISP is designated as your primary with your second as failover. If eth0 is yanked out or otherwise goes dead, traffic switches over to the second ISP and the VPN is re-established through that link. When the first ISP is again "up", things will very quickly dynamically change back to using that link. This fallback to primary as soon as possible behavior is very important if your secondary ISP is something like a pricey LTE/4G uplink!
+
+## Credits
+
+UBNT support forums and reddit were very helpful in getting this to work
